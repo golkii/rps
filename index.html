@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <script>
+            function getComputerChoice() {
+                let randomNumber = Math.floor(Math.random() * 3);
+                if (randomNumber === 0) {
+                    return "rock";
+                }
+                else if (randomNumber === 1) {
+                    return "paper";
+                }
+                else {
+                    return "scissors";
+                }
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection.toLowerCase() === 'rock') {
+                    if (computerSelection === "rock") {
+                        return "Draw! Rock vs Rock";
+                    }
+                    else if (computerSelection === "paper") {
+                        return "You lose! Paper beats rock";
+                    }
+                    else {
+                        return "You win! Rock beats scissors";
+                    }
+                }
+                else if (playerSelection.toLowerCase() === 'paper') {
+                    if (computerSelection === "rock") {
+                        return "You win! Paper beats rock";
+                    }
+                    else if (computerSelection === "paper") {
+                        return "Draw! Paper vs paper";
+                    }
+                    else {
+                        return "You lose! Scissors beats paper";
+                    }
+                }
+                else {
+                    if (computerSelection === "rock") {
+                        return "You lose! Rock beats scissors";
+                    }
+                    else if (computerSelection === "paper") {
+                        return "You win! Scissors beats paper";
+                    }
+                    else {
+                        return "Draw! Scissors vs scissors";
+                    }
+                }
+            }
+
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    console.log(playRound(prompt("Write your choice"), getComputerChoice()));
+
+                }
+            }
+            //поменяй ретерны, должны выводить просто результат
+            console.log(game());
+        </script>
+    </body>
+</html>
