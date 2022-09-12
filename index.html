@@ -22,46 +22,71 @@
             function playRound(playerSelection, computerSelection) {
                 if (playerSelection.toLowerCase() === 'rock') {
                     if (computerSelection === "rock") {
-                        return "Draw! Rock vs Rock";
+                        console.log("Draw! Rock vs Rock");
+                        return "draw";
                     }
                     else if (computerSelection === "paper") {
-                        return "You lose! Paper beats rock";
+                        console.log("You lose! Paper beats rock");
+                        return "lose";
                     }
                     else {
-                        return "You win! Rock beats scissors";
+                        console.log("You win! Rock beats scissors");
+                        return "win";
                     }
                 }
                 else if (playerSelection.toLowerCase() === 'paper') {
                     if (computerSelection === "rock") {
-                        return "You win! Paper beats rock";
+                        console.log("You win! Paper beats rock");
+                        return "win";
                     }
                     else if (computerSelection === "paper") {
-                        return "Draw! Paper vs paper";
+                        console.log("Draw! Paper vs paper");
+                        return "draw";
                     }
                     else {
-                        return "You lose! Scissors beats paper";
+                        console.log("You lose! Scissors beats paper");
+                        return "lose";
                     }
                 }
                 else {
                     if (computerSelection === "rock") {
-                        return "You lose! Rock beats scissors";
+                        console.log("You lose! Rock beats scissors");
+                        return "lose";
                     }
                     else if (computerSelection === "paper") {
-                        return "You win! Scissors beats paper";
+                        console.log("You win! Scissors beats paper");
+                        return "win";
                     }
                     else {
-                        return "Draw! Scissors vs scissors";
+                        console.log("Draw! Scissors vs scissors");
+                        return "draw";
                     }
                 }
             }
 
             function game() {
+                let playerScore = 0;
+                let computerScore = 0;
                 for (let i = 0; i < 5; i++) {
-                    console.log(playRound(prompt("Write your choice"), getComputerChoice()));
-
+                    let result = playRound(prompt("Write your choice"), getComputerChoice());
+                    if (result === "win") {
+                        playerScore++; 
+                    }
+                    else if (result === "lose") {
+                        computerScore++;
+                    }
+                }
+                if (playerScore > computerScore) {
+                    return "You win! " + playerScore + ":" + computerScore;
+                }
+                else if (playerScore < computerScore) {
+                    return "You lose! " + playerScore + ":" + computerScore;
+                }
+                else {
+                    return "Draw! " + playerScore + ":" + computerScore;
                 }
             }
-            //поменяй ретерны, должны выводить просто результат
+
             console.log(game());
         </script>
     </body>
